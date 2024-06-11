@@ -1,0 +1,17 @@
+name: "fastapi_auth"
+
+services:
+  auth-api-service:
+    image: "auth-api-img"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/code/
+    networks:
+      - auth-network
+
+networks:
+  auth-network:
